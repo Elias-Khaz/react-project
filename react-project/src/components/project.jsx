@@ -3,7 +3,7 @@ function Project({ name, screenshot, github, description, learned, challenges })
         <div className="project">
             <h2>{name}</h2>
 
-            {screenshot && <img src="" alt="" width="300" />}
+            {screenshot && <img src={screenshot} alt={name} width="300" />}
 
             <p><strong>Description:</strong> {description}</p>
             <p><strong>What I Learned:</strong> {learned}</p>
@@ -15,3 +15,5 @@ function Project({ name, screenshot, github, description, learned, challenges })
         </div>
     );
 }
+
+export default Project;
