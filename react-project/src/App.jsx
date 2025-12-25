@@ -1,35 +1,40 @@
-import ProjectOne from "./components/projectOne";
-import ProjectTwo from "./components/projectTwo";
-import ProjectThree from "./components/projectThree";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
+import Navbar from "./components/navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+
 function App() {
-  let [darkMode, setDarkMode] = useState(true);
-  
+  const [darkMode, setDarkMode] = useState(true);
+
   function toggleTheme() {
-    let newMode = !darkMode;
+    const newMode = !darkMode;
     setDarkMode(newMode);
 
-    if (newMode === false) {
+    if (!newMode) {
       document.body.classList.add("light-mode");
     } else {
       document.body.classList.remove("light-mode");
     }
   }
-  
+
   return (
-    <div>
+    <>
       <button className="toggle-theme" onClick={toggleTheme}>
-          {darkMode ? "Light Mode" : "Dark Mode"}
+        {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
 
-      <h1>My Portfolio</h1>
+      <Navbar />
 
-      <ProjectOne />
-      <ProjectTwo />
-      <ProjectThree />
-    </div>
-  )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
