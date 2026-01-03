@@ -89,3 +89,33 @@ body.light-mode .toggle-theme {
   opacity: 1;
   font-weight: 600;
 }
+
+button {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #333;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #2a2a2a;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+body.light-mode button {
+  background-color: #e5e5e5;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+body.light-mode button:hover {
+  background-color: #d6d6d6;
+}
