@@ -72,3 +72,20 @@ body.light-mode .toggle-theme {
     color: #121212;
     border: 1px solid #d6d6d6;
 }
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.nav-link.active {
+  opacity: 1;
+  font-weight: 600;
+}

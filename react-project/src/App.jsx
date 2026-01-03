@@ -7,7 +7,14 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") !== "light";
+  });
+
+  if (!darkMode) {
+    document.body.classList.add("light-mode");
+  }
 
   function toggleTheme() {
     const newMode = !darkMode;
@@ -15,8 +22,10 @@ function App() {
 
     if (!newMode) {
       document.body.classList.add("light-mode");
+      localStorage.setItem("theme", "light");
     } else {
       document.body.classList.remove("light-mode");
+      localStorage.setItem("theme", "dark");
     }
   }
 
