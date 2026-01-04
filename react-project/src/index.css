@@ -167,3 +167,21 @@ body.light-mode .popup {
   background: #f2f2f2;
   color: #111;
 }
+
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-buttons button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 0.95rem;
+}
