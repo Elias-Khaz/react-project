@@ -73,6 +73,8 @@ body.light-mode .toggle-theme {
     border: 1px solid #d6d6d6;
 }
 
+
+
 .navbar {
   display: flex;
   gap: 1.5rem;
@@ -89,6 +91,8 @@ body.light-mode .toggle-theme {
   opacity: 1;
   font-weight: 600;
 }
+
+
 
 button {
   background-color: #1f1f1f;
@@ -118,4 +122,48 @@ body.light-mode button {
 
 body.light-mode button:hover {
   background-color: #d6d6d6;
+}
+
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #1f1f1f;
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.popup img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: inherit;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+body.light-mode .popup {
+  background: #f2f2f2;
+  color: #111;
 }
