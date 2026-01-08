@@ -73,8 +73,6 @@ body.light-mode .toggle-theme {
     border: 1px solid #d6d6d6;
 }
 
-
-
 .navbar {
   display: flex;
   gap: 1.5rem;
@@ -92,8 +90,6 @@ body.light-mode .toggle-theme {
   font-weight: 600;
 }
 
-
-
 button {
   background-color: #1f1f1f;
   color: #ffffff;
@@ -103,6 +99,7 @@ button {
   cursor: pointer;
   font-size: 0.95rem;
   margin: 1.5rem 0;
+  margin-left: 2rem;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
@@ -123,8 +120,6 @@ body.light-mode button {
 body.light-mode button:hover {
   background-color: #d6d6d6;
 }
-
-
 
 .popup-overlay {
   position: fixed;
@@ -186,7 +181,6 @@ body.light-mode .popup {
   font-size: 0.95rem;
 }
 
-/* SEARCH BAR */
 .search-input {
   width: 100%;
   max-width: 320px;
