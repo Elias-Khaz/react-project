@@ -4,6 +4,7 @@ import Popup from "../components/Popup";
 function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showProjects, setShowProjects] = useState(false);
+  const [search, setSearch] = useState("");
 
   const projects = [
     {
@@ -11,6 +12,7 @@ function Portfolio() {
       name: "Design made from Figma",
       screenshot: "/src/assets/screenshot.png",
       github: "https://github.com/Elias-Khaz/productly-assignment",
+      tech: ["HTML, CSS"],
       description:
         "This design was made using html and css. It was a solo project made for an assignment and gave a feel for what work could feel like in the future.",
       learned:
@@ -23,6 +25,7 @@ function Portfolio() {
       name: "A clean form",
       screenshot: "/src/assets/screenshot2.png",
       github: "https://github.com/Elias-Khaz/Form-assignment",
+      tech: ["HTML, CSS"],
       description:
         "My first time making a form that can be used for logging using html and css.",
       learned:
@@ -34,6 +37,7 @@ function Portfolio() {
       name: "Typing Game",
       screenshot: "/src/assets/screenshot3.png",
       github: "https://github.com/Elias-Khaz/js7",
+      tech: ["Javascript"],
       description:
         "Here I made a word typing game with a point system and timer.",
       learned:
@@ -51,28 +55,71 @@ function Portfolio() {
     setSelectedProject(null);
   }
 
+{/* highlighter */}
+  function highlightMatch(text, search) {
+    if (!search) return text;
+
+    const parts = text.split(new RegExp(`(${search})`, "gi"));
+
+    return parts.map((part, index) => 
+      part.toLowerCase() === search.toLowerCase() ? (
+        <span key={index} className="highlight">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  }
+
+  const filteredProjects = projects.filter(project =>
+    project.name.toLowerCase().includes(search.toLowerCase()) ||
+    project.tech.some(tech => tech.toLowerCase().includes(search.toLowerCase())
+    )
+  );
+
   return (
     <div>
       <h1>My Projects</h1>
 
+{/* search bar */}
+    <input 
+      className="search-input"
+      type="text" 
+      placeholder="Search by name or tech..."
+      value={search}
+      onChange={(e) => {
+        setSearch(e.target.value);
+        setShowProjects(true);
+      }}
+    />
+
+{/* preview button */}
       <button onClick={() => setShowProjects(prev => !prev)}>
         {showProjects ? "Hide Projects" : "Preview Projects"}
       </button>
 
+{/* project buttons */}
       {showProjects && (
         <div className="project-buttons">
-          {projects.map(project => (
+          {filteredProjects.map(project => 
             <button
               key={project.id}
               onClick={() => openPopup(project)}
             >
-              {project.name}
+              {highlightMatch(project.name, search)}
             </button>
-          ))}
+          )} 
         </div>
       )}
 
-      <Popup project={selectedProject} onClose={closePopup} />
+{/* popup */}
+      {selectedProject && (
+        <Popup 
+          project={selectedProject} 
+          onClose={closePopup} 
+        />
+      )}
     </div>
   );
 }
